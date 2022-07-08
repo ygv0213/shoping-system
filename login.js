@@ -49,10 +49,43 @@ window.addEventListener('load', (e)=>{
             const address = document.getElementById("address");
             const mail = document.getElementById("mail");
             const zipcode = document.getElementById("zipcode");
-            let allGood = false;
-            //i am here 
+            let sumtingWrong = false;
 
-            if(userName.value.length <= 2) userName.style.hi
+            if(userName.value.length <= 2){ 
+                userName.value = "";
+                userName.placeholder = "To short name !";
+                sumtingWrong = true;
+            }
+            if(userName.value.length > 15){ 
+                userName.value = "";
+                userName.placeholder = "To long name !";
+                sumtingWrong = true;
+            }
+            if(phone.value.length > 10 || phone.value.length < 10){ 
+                phone.value = "";
+                phone.placeholder = "unvalid phone !";
+                sumtingWrong = true;
+            }
+            if(zipcode.value.length > 10 || zipcode.value.length < 4){ 
+                zipcode.value = "";
+                zipcode.placeholder = "unvalid zipcode !";
+                sumtingWrong = true;
+            }
+            if(mail.value.length < 5 || mail.value.length > 30){ 
+                mail.value = "";
+                mail.placeholder = "unvalid mail !";
+                sumtingWrong = true;
+            }
+            if(pass.value.length < 8){ 
+                pass.value = "";
+                pass.placeholder = "short password !";
+                sumtingWrong = true;
+            }
+
+            if(!sumtingWrong){
+                //im am here
+                console.log("all good")
+            }
         });
     }
 
